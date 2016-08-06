@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>MadLibs</title>
+    <link type="text/css" rel="stylesheet" href="css/style.css">
+    <script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
+    <script type="text/javascript" src="bower_components/angular-route/angular-route.min.js"></script>
+    <script type="text/javascript" src="madlibs.js"></script>
+    <script type="text/javascript" src="controllers/madlibsController.js"></script>
+</head>
+
+<body ng-app="madlibs">
+    <div class="page-container" ng-controller="madlibsController">
+        <header class="imageBlock">
+            <span class="happyFace">
+              <img src="images/happy-face.jpeg" height="150" width="201" alt="Smiling Face">
+            </span>
+            <span class="madLibImg">
+              <img src="images/madLib.jpeg" height="116" width="360" alt="Mad Libs">
+              <subsection ><h1 class="masthead-intro"> Automate This! </h1></subsection>
+            </span>
+        </header>
+        <br>
+        <br>
+        <form name="madLibForm" class="formContainer">
+            <div class="info-container">
+                <h1 class="info-heading">Provide the following words</h1>
+                <div class="info">
+                    <div>
+                        <p>Please Select Gender before entering words</p>
+                        <label>Male</label>
+                        <input type="radio" ng-model="gender" value="male" ng-change="displayData()" />
+                        <label>Female </label>
+                        <input type="radio" ng-model="gender" value="female" ng-change="displayData()" />
+                    </div>
+                    <input type="text" placeholder="Name" ng-model="firstName" name="myName">
+                    <input type="text" placeholder="Job Title" ng-model="jobTitle" name="myJobTitle">
+                    <input type="text" placeholder="Tedious task" ng-model="tediousTask" name="myTediousTask">
+                    <input type="text" placeholder="Dirty task" ng-model="dirtyTask" name="myDirtyTask">
+                    <input type="text" placeholder="Celebrity" ng-model="celebrity" name="myCelebrity">
+                    <input type="text" placeholder="Useless skill" ng-model="uselessSkill" name="myUselessSkill">
+                    <input type="text" placeholder="Obnoxious celebrity" ng-model="obnoxiousCelebrity" name="myOC">
+                    <input type="number" placeholder="Huge number" ng-model="hugeNumber" name="myHugeNumber">
+                    <input type="text" placeholder="Adjective" ng-model="adjective" name="myAdjective">
+                </div>
+            </div>
+            <div class="content-container" ng-if="isMaleSelected">
+                <div>
+                    <p>
+                        <span class="substituteWord">{{firstName}}</span> was a <span class="substituteWord">{{jobTitle}}</span> who loved technology. Although he loved parts of his job, he absolutely hated <span class="substituteWord">{{tediousTask}}</span> and <span class="substituteWord">{{dirtyTask}}</span>. So, <span class="substituteWord">{{firstName}}</span> met with his life mentor <span class="substituteWord">{{celebrity}}</span> who told him to learn how to <span class="substituteWord">{{uselessSkill}}</span> with Thinkful.
+                        <br> Thinkful didn't offer a course on <span class="substituteWord">{{uselessSkill}}</span> so he studied programming instead.
+                    </p>
+                    <p>
+                        What a great decision! With his new skills, <span class="substituteWord">{{firstName}}</span> built a(n) <span class="substituteWord">{{adjective}}</span> robot named <span class="substituteWord">{{obnoxiousCelebrity}}</span> that not only loved <span class="substituteWord">{{dirtyTask}}</span> but did it <span class="substituteWord">{{hugeNumber | number}}</span> times faster.
+                    </p>
+                </div>
+            </div>
+            <div class="content-container" ng-if="isFemaleSelected">
+                <div>
+                    <p>
+                        <span class="substituteWord">{{firstName}}</span> was a <span class="substituteWord">{{jobTitle}}</span> who loved technology. Although she loved parts of her job, she absolutely hated <span class="substituteWord">{{tediousTask}}</span> and <span class="substituteWord">{{dirtyTask}}</span>. So, <span class="substituteWord">{{firstName}}</span> met with her life mentor <span class="substituteWord">{{celebrity}}</span> who told her to learn how to <span class="substituteWord">{{uselessSkill}}</span> with Thinkful.
+                        <br> Thinkful didn't offer a course on <span class="substituteWord">{{uselessSkill}}</span> so she studied programming instead.
+                    </p>
+                    <p>
+                        What a great decision! With her new skills, <span class="substituteWord">{{firstName}}</span> built a(n) <span class="substituteWord">{{adjective}}</span> robot named <span class="substituteWord">{{obnoxiousCelebrity}}</span> that not only loved <span class="substituteWord">{{dirtyTask}}</span> but did it <span class="substituteWord">{{hugeNumber | number}}</span> times faster.
+                    </p>
+                </div>
+            </div>
+        </form>
+        <div>
+</body>
+
+</html>
