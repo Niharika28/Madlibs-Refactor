@@ -11,7 +11,7 @@
 </head>
 
 <body ng-app="madlibs">
-    <div class="page-container" ng-controller="madlibsController">
+    <div class="page-container" ng-controller="madlibsController as vm">
         <header class="imageBlock">
             <span class="happyFace">
               <img src="images/happy-face.jpeg" height="150" width="201" alt="Smiling Face">
@@ -30,9 +30,9 @@
                     <div>
                         <p>Please Select Gender before entering words</p>
                         <label>Male</label>
-                        <input type="radio" ng-model="gender" value="male" ng-change="displayData()" />
+                        <input type="radio" ng-model="vm.gender" value="male" ng-change="vm.displayData()" />
                         <label>Female </label>
-                        <input type="radio" ng-model="gender" value="female" ng-change="displayData()" />
+                        <input type="radio" ng-model="vm.gender" value="female" ng-change="vm.displayData()" />
                     </div>
                     <input type="text" placeholder="Name" ng-model="firstName" name="myName">
                     <input type="text" placeholder="Job Title" ng-model="jobTitle" name="myJobTitle">
@@ -45,7 +45,7 @@
                     <input type="text" placeholder="Adjective" ng-model="adjective" name="myAdjective">
                 </div>
             </div>
-            <div class="content-container" ng-if="isMaleSelected">
+            <div class="content-container" ng-if="vm.isMaleSelected">
                 <div>
                     <p>
                         <span class="substituteWord">{{firstName}}</span> was a <span class="substituteWord">{{jobTitle}}</span> who loved technology. Although he loved parts of his job, he absolutely hated <span class="substituteWord">{{tediousTask}}</span> and <span class="substituteWord">{{dirtyTask}}</span>. So, <span class="substituteWord">{{firstName}}</span> met with his life mentor <span class="substituteWord">{{celebrity}}</span> who told him to learn how to <span class="substituteWord">{{uselessSkill}}</span> with Thinkful.
@@ -56,7 +56,7 @@
                     </p>
                 </div>
             </div>
-            <div class="content-container" ng-if="isFemaleSelected">
+            <div class="content-container" ng-if="vm.isFemaleSelected">
                 <div>
                     <p>
                         <span class="substituteWord">{{firstName}}</span> was a <span class="substituteWord">{{jobTitle}}</span> who loved technology. Although she loved parts of her job, she absolutely hated <span class="substituteWord">{{tediousTask}}</span> and <span class="substituteWord">{{dirtyTask}}</span>. So, <span class="substituteWord">{{firstName}}</span> met with her life mentor <span class="substituteWord">{{celebrity}}</span> who told her to learn how to <span class="substituteWord">{{uselessSkill}}</span> with Thinkful.

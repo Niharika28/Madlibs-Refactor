@@ -1,16 +1,17 @@
 angular.module('madlibs')
-.controller("madlibsController", function($scope) {
-$scope.madLibForm = [];
-$scope.isMaleSelected = false;
-$scope.isFemaleSelected = false;
+.controller("madlibsController", function() {
+var vm = this;
+vm.madLibForm = [];
+vm.isMaleSelected = false;
+vm.isFemaleSelected = false;
 
-$scope.displayData = function(){
-	if($scope.gender == "male"){
-		$scope.isMaleSelected = true;
-		$scope.isFemaleSelected = false;
+vm.displayData = function(){
+	if(vm.gender == "male"){
+		vm.isMaleSelected = true;
+		vm.isFemaleSelected = false;
 	}else{
-		$scope.isMaleSelected = false;
-		$scope.isFemaleSelected = true;
+		vm.isMaleSelected = false;
+		vm.isFemaleSelected = true;
 	}
 }
 	
